@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blind Technical Academy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    a {
+      color: #0055aa;
+    }
+    a:focus, button:focus {
+      outline: 2px dashed #ff9900;
+      outline-offset: 2px;
+    }
+    header, nav, main, footer {
+      padding: 1em;
+    }
+    nav a {
+      margin-right: 1em;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    #live-region {
+      position: absolute;
+      left: -9999px;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="live-region" aria-live="polite" aria-atomic="true"></div>
+
+  <header role="banner">
+    <h1>Blind Technical Academy</h1>
+    <p>Empowering visually impaired individuals through technology education.</p>
+  </header>
+
+  <nav role="navigation" aria-label="Main Navigation">
+    <ul>
+      <li><a href="#courses">Courses (Alt + 1)</a></li>
+      <li><a href="#about">About Us (Alt + 2)</a></li>
+      <li><a href="#contact">Contact (Alt + 3)</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content" role="main">
+    <section id="courses" aria-labelledby="courses-heading" tabindex="-1">
+      <h2 id="courses-heading">Our Courses</h2>
+      <p>We offer accessible courses in web development, Python programming, and assistive technologies.</p>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading" tabindex="-1">
+      <h2 id="about-heading">About Us</h2>
+      <p>Blind Technical Academy is committed to inclusive tech education for the blind and visually impaired community.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading" tabindex="-1">
+      <h2 id="contact-heading">Contact Us</h2>
+      <p>Email: <a href="mailto:navam.bta1987@gmail.com">navam.bta1987@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Blind Technical Academy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const liveRegion = document.getElementById("live-region");
+
+    function announce(message) {
+      liveRegion.textContent = message;
+    }
+
+    function jumpToSection(sectionId, message) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.focus();
+        announce(message);
+      }
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.altKey) {
+        switch (e.key) {
+          case "1":
+            jumpToSection("courses", "Navigated to Courses section");
+            break;
+          case "2":
+            jumpToSection("about", "Navigated to About Us section");
+            break;
+          case "3":
+            jumpToSection("contact", "Navigated to Contact section");
+            break;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

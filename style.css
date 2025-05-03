@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  a {
+    color: #0055aa;
+  }
+  
+  a:focus, button:focus {
+    outline: 2px dashed #ff9900;
+    outline-offset: 2px;
+  }
+  
+  header, nav, main, footer {
+    padding: 1em;
+  }
+  
+  nav a {
+    margin-right: 1em;
+  }
+  
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
+  
+  #live-region {
+    position: absolute;
+    left: -9999px;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+  
